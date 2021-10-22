@@ -5,20 +5,20 @@ using UnityEngine.UI;
 
 public class QuestionController : MonoBehaviour
 {
-    [SerializeField] Text questionText, choiceA, choiceB, choiceC, choiceD, pointText;
-    [SerializeField] Button nextQuestionButton;
+    [SerializeField] Text questionText, choiceA, choiceB, choiceC, choiceD, pointText, finishCategoryText, scoreText, healthText, refreshJokerText,timerJokerText;
+    [SerializeField] Button nextQuestionButton, refreshJokerButton,timerJokerButton;
     [SerializeField] Button[] choiceButtons;
     [SerializeField] Button[] categoryButtons;
     [SerializeField] GameObject questionPanel, trueAnswerPanel, wrongAnswerPanel, choosePanel, startPanel, welldonePanel;
-    int point, turn = 0, choiceNumber;
+    [SerializeField] int asd,timerJoker,point, turn, choiceNumber, finishCategory, health, refreshJoker;
     Color color;
     QuestionList questionList;
     Question question;
     IEnumerator coroutine;
-
+    [SerializeField] TimerController timerController;
     private void Start()
     {
-        point = 0;
+        UiRefresh();
         color = choiceButtons[0].gameObject.GetComponent<Image>().color;
         questionList = GetComponent<QuestionList>();
     }
@@ -26,6 +26,7 @@ public class QuestionController : MonoBehaviour
 
     public void GiveQuestion(int categoryID)
     {
+        timerController.StartCounter();
         choosePanel.SetActive(false);
         questionPanel.SetActive(true);
         ButtonRefresh();
@@ -132,7 +133,18 @@ public class QuestionController : MonoBehaviour
         trueAnswerPanel.SetActive(false);
         GiveQuestion(choiceNumber);
     }
-
+    public void UiRefresh()
+    {
+        scoreText.text = point.ToString();
+        finishCategoryText.text = finishCategory.ToString();
+        refreshJokerText.text = refreshJoker.ToString();
+        timerJokerText.text = timerJoker.ToString();
+    }
+  
+    public void PointRefresh()
+    {
+        pointText.text = point.ToString();
+    }
     IEnumerator Welldone()
     {
         welldonePanel.SetActive(true);
@@ -140,6 +152,34 @@ public class QuestionController : MonoBehaviour
         welldonePanel.SetActive(false);
 
     }
+
+    public void RefreshQuestionJoker()
+    {
+        if (refreshJoker != 0)
+        {
+            refreshJoker--;
+            refreshJokerText.text = refreshJoker.ToString();
+            GiveQuestion(choiceNumber);
+            if (refreshJoker == 0)
+            {
+                refreshJokerButton.interactable = false;
+            }
+        }
+    }
+
+    public void TimerJoker(){
+        if (timerJoker != 0)
+        {
+            timerJoker--;
+            timerJokerText.text = timerJoker.ToString();
+            TimerController.sec += 5;
+            if (timerJoker == 0)
+            {
+                timerJokerButton.interactable = false;
+            }
+        }
+    }
+
     IEnumerator AnswerControl(Choice choice, Button selectedButton)
     {
         for (int i = 0; i < choiceButtons.Length; i++)
@@ -154,18 +194,21 @@ public class QuestionController : MonoBehaviour
             point += 10;
             if (turn == 4)
             {
+                finishCategory++;
+                // game finish
                 choiceNumber = 0;
                 questionPanel.SetActive(false);
                 StartCoroutine(Welldone());
                 choosePanel.SetActive(true);
                 turn = 0;
+                UiRefresh();
             }
             else
             {
                 turn++;
                 trueAnswerPanel.SetActive(true);
             }
-            pointText.text = point.ToString();
+            PointRefresh();
             selectedButton.gameObject.GetComponent<Image>().color = Color.green;
             nextQuestionButton.interactable = true;
         }
@@ -175,6 +218,14 @@ public class QuestionController : MonoBehaviour
             wrongAnswerPanel.SetActive(true);
             yield return new WaitForSeconds(1);
             wrongAnswerPanel.SetActive(false);
+            point -= 5;
+            health--;
+            healthText.text = health.ToString();
+            if (health == 0)
+            {
+                //game over panel
+            }
+            PointRefresh();
             selectedButton.gameObject.GetComponent<Image>().color = color;
             ButtonRefresh();
         }
