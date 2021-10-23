@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class QuestionController : MonoBehaviour
 {
-    [SerializeField] Text questionText, choiceA, choiceB, choiceC, choiceD, pointText, finishCategoryText, scoreText, healthText, refreshJokerText,timerJokerText, chooseHealthText,chooseTimerText,chooseRefreshText, correctQuestionText,bestScoreText,finishScoreText;
-    [SerializeField] Button nextQuestionButton, refreshJokerButton,timerJokerButton;
+    [SerializeField] Text questionText, choiceA, choiceB, choiceC, choiceD, pointText, finishCategoryText, scoreText, healthText, refreshJokerText, timerJokerText, chooseHealthText, chooseTimerText, chooseRefreshText, correctQuestionText, bestScoreText, finishScoreText;
+    [SerializeField] Button nextQuestionButton, refreshJokerButton, timerJokerButton;
     [SerializeField] Button[] choiceButtons;
     [SerializeField] Button[] categoryButtons;
-    [SerializeField] GameObject questionPanel, trueAnswerPanel, wrongAnswerPanel, choosePanel, startPanel, gameOverPanel,welldonePanel,finishScreenPanel;
-    [SerializeField] int correctQuestion,timerJoker,point, turn, choiceNumber, finishCategory, health, refreshJoker;
+    [SerializeField] GameObject pointAnimText, questionPanel, trueAnswerPanel, wrongAnswerPanel, choosePanel, startPanel, gameOverPanel, welldonePanel, finishScreenPanel;
+    [SerializeField] int correctQuestion, timerJoker, point, turn, choiceNumber, finishCategory, health, refreshJoker;
     Color color;
     QuestionList questionList;
     Question question;
@@ -140,8 +140,9 @@ public class QuestionController : MonoBehaviour
         timerJokerText.text = timerJoker.ToString();
         healthText.text = health.ToString();
     }
-    
-    public void UiRefreshOnChoosePanel(){
+
+    public void UiRefreshOnChoosePanel()
+    {
         scoreText.text = point.ToString();
         finishCategoryText.text = finishCategory.ToString();
         chooseHealthText.text = health.ToString();
@@ -149,7 +150,7 @@ public class QuestionController : MonoBehaviour
         chooseTimerText.text = timerJoker.ToString();
     }
 
-    
+
     IEnumerator Welldone()
     {
         UiRefreshOnChoosePanel();
@@ -173,7 +174,8 @@ public class QuestionController : MonoBehaviour
         }
     }
 
-    public void TimerJoker(){
+    public void TimerJoker()
+    {
         if (timerJoker != 0)
         {
             timerJoker--;
@@ -185,11 +187,14 @@ public class QuestionController : MonoBehaviour
             }
         }
     }
-    public void PointChecker(){
+
+    public void PointChecker()
+    {
         if (TimerController.sec > 15)
         {
             point += 10;
-        }else if (TimerController.sec > 10 && TimerController.sec <= 15)
+        }
+        else if (TimerController.sec > 10 && TimerController.sec <= 15)
         {
             point += 7;
         }
@@ -226,7 +231,7 @@ public class QuestionController : MonoBehaviour
                 {
                     if (point > PlayerPrefs.GetInt("bestscore"))
                     {
-                        PlayerPrefs.SetInt("bestscore",point);
+                        PlayerPrefs.SetInt("bestscore", point);
                     }
                     FinishScreenController();
                 }
@@ -263,7 +268,8 @@ public class QuestionController : MonoBehaviour
 
     }
 
-    public void GameOver(){
+    public void GameOver()
+    {
         questionPanel.SetActive(false);
         gameOverPanel.SetActive(true);
         foreach (var item in categoryButtons)
@@ -280,7 +286,8 @@ public class QuestionController : MonoBehaviour
         UiRefreshOnQuestionPanel();
     }
 
-    public void FinishScreenController(){
+    public void FinishScreenController()
+    {
         questionPanel.SetActive(false);
         finishScreenPanel.SetActive(true);
         int bestScore = PlayerPrefs.GetInt("bestscore");
