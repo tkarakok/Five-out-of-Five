@@ -8,11 +8,13 @@ public class TimerController : MonoBehaviour
 
     [SerializeField] Text secText;
     [SerializeField] GameObject gameOverPanel;
-    public static float sec = 15;
+    public static float sec = 21;
 
     public void StartCounter()
     {
-        StartCoroutine(Timer());
+       StopAllCoroutines();
+       sec = 21;
+       StartCoroutine(Timer());
     }
     IEnumerator Timer()
     {
@@ -24,5 +26,6 @@ public class TimerController : MonoBehaviour
         }
         gameOverPanel.SetActive(true);
     }
+
 
 }

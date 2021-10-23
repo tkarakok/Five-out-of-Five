@@ -6,22 +6,31 @@ public class MenuController : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject startPanel, choosePanel, settingsPanel;
+    GameObject startPanel, choosePanel, settingsPanel, gameOverPanel, finishScreenPanel;
 
-    public void StartButtonFunction(){
+    public void StartButtonFunction()
+    {
         startPanel.SetActive(false);
         choosePanel.SetActive(true);
     }
-     public void SettingsButtonFunction(){
+    public void SettingsButtonFunction()
+    {
         startPanel.SetActive(false);
         settingsPanel.SetActive(true);
     }
-    public void SettingsBackButton(){
+    public void SettingsBackButton()
+    {
         settingsPanel.SetActive(false);
         startPanel.SetActive(true);
     }
-    public void QuitButtonFunction(){
+    public void QuitButtonFunction()
+    {
         Application.Quit();
     }
-    
+    public void Restart()
+    {
+        gameOverPanel.SetActive(false);
+        finishScreenPanel.SetActive(false);
+        startPanel.SetActive(true);
+    }
 }
