@@ -8,13 +8,23 @@ public class TimerController : MonoBehaviour
 
     [SerializeField] Text secText;
     [SerializeField] GameObject gameOverPanel;
-    public static float sec = 21;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip lastSeconds;
+    [SerializeField] QuestionController questionController;
+    public static float sec = 20;
+    int counter = 0;
 
     public void StartCounter()
     {
        StopAllCoroutines();
-       sec = 21;
+       sec = 20;
        StartCoroutine(Timer());
+    }
+    void LastSecondsController(){
+        if (sec < 5)
+        {
+             audioSource.PlayOneShot(lastSeconds);
+        }
     }
     IEnumerator Timer()
     {
@@ -23,8 +33,17 @@ public class TimerController : MonoBehaviour
             yield return new WaitForSeconds(1);
             sec--;
             secText.text = sec.ToString();
+            if (sec < 5)
+            {
+                counter++;
+                if (counter == 1)
+                {
+                    LastSecondsController();
+                }
+            }
         }
-        gameOverPanel.SetActive(true);
+        
+        questionController.GameOver();
     }
 
 

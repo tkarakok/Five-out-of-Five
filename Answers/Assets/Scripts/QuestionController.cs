@@ -9,13 +9,18 @@ public class QuestionController : MonoBehaviour
     [SerializeField] Button nextQuestionButton, refreshJokerButton, timerJokerButton;
     [SerializeField] Button[] choiceButtons;
     [SerializeField] Button[] categoryButtons;
-    [SerializeField] GameObject pointAnimText, questionPanel, trueAnswerPanel, wrongAnswerPanel, choosePanel, startPanel, gameOverPanel, welldonePanel, finishScreenPanel;
-    [SerializeField] int correctQuestion, timerJoker, point, turn, choiceNumber, finishCategory, health, refreshJoker;
+    [SerializeField] GameObject questionPanel, trueAnswerPanel, wrongAnswerPanel, choosePanel, startPanel, gameOverPanel, welldonePanel, finishScreenPanel;
+    [SerializeField] int correctQuestion, timerJoker, point, turn, choiceNumber, finishCategory, refreshJoker;
+    
+    public static int health = 3;
     Color color;
     QuestionList questionList;
     Question question;
     IEnumerator coroutine;
     [SerializeField] TimerController timerController;
+    [SerializeField] AdsController adsController;
+    [SerializeField] AudioClip trueAnswerClip, wrongAnswerClip;
+    [SerializeField] AudioSource audioSource;
     private void Start()
     {
         UiRefreshOnQuestionPanel();
@@ -65,7 +70,7 @@ public class QuestionController : MonoBehaviour
             choiceNumber = 5;
             question = questionList.Sport[Random.Range(0, questionList.Sport.Count)];
             PrintQuestion();
-            categoryButtons[2].interactable = false;
+            categoryButtons[4].interactable = false;
         }
         else if (categoryID == 6)
         {
@@ -218,11 +223,13 @@ public class QuestionController : MonoBehaviour
 
         if (choice == question.trueAnswer)
         {
+            audioSource.PlayOneShot(trueAnswerClip);
             correctQuestion++;
             correctQuestionText.text = correctQuestion.ToString();
             PointChecker();
             if (turn == 4)
             {
+                adsController.ResetAdsCounter();
                 finishCategory++;
                 choiceNumber = 0;
                 questionPanel.SetActive(false);
@@ -250,6 +257,7 @@ public class QuestionController : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(wrongAnswerClip);
             selectedButton.gameObject.GetComponent<Image>().color = Color.red;
             wrongAnswerPanel.SetActive(true);
             yield return new WaitForSeconds(1);
