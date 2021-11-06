@@ -5276,7 +5276,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8c477530c019a364585eaece13a3b326, type: 3}
+    m_Font: {fileID: 12800000, guid: 556881db17eb4f747a1298f3d356f125, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -7275,83 +7275,203 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Culture:
-  - question: Which one is color?
-    aChoiceText: Elephant
-    bChoiceText: Green
-    cChoiceText: Car
-    dChoiceText: House
+  - question: "A\u015Fa\u011F\u0131dakilerden hangisi T\xFCrkiye\u2019nin kom\u015Fusu
+      bir \xFClke de\u011Fildir?"
+    aChoiceText: "\u0130ran"
+    bChoiceText: "G\xFCrcistan"
+    cChoiceText: Bulgaristan
+    dChoiceText: Almanya
+    trueAnswer: 3
+  - question: RGB  renkleri temsil eder?
+    aChoiceText: "K\u0131rm\u0131z\u0131- Ye\u015Fil - Mavi"
+    bChoiceText: "K\u0131rm\u0131z\u0131- Mavi - Sar\u0131"
+    cChoiceText: "Sar\u0131 - Ye\u015Fil - Siyah"
+    dChoiceText: Siyah - Beyaz - Turuncu
+    trueAnswer: 0
+  - question: "2003 y\u0131l\u0131nda eurovizyon \u015Fark\u0131 yar\u0131\u015Fmas\u0131nda
+      \xFClkemizi temsil eden ve yar\u0131\u015Fmada birinci gelen sanat\xE7\u0131m\u0131z
+      kimdir?"
+    aChoiceText: Athena
+    bChoiceText: Sertab Erener
+    cChoiceText: Ajda Pekkan
+    dChoiceText: Hadise
     trueAnswer: 1
-  - question: Where is the capital of Turkey?
-    aChoiceText: Samsun
-    bChoiceText: "\u0130zmir"
-    cChoiceText: "\u0130stanbul"
-    dChoiceText: Ankara
+  - question: "A\u015Fa\u011F\u0131dakilerden hangisi d\xFCnya sa\u011Fl\u0131k \xF6rg\xFCt\xFCn\xFCn
+      k\u0131salt\u0131lm\u0131\u015F ismidir?"
+    aChoiceText: UHW
+    bChoiceText: WHO
+    cChoiceText: NATO
+    dChoiceText: UNICEF
+    trueAnswer: 1
+  - question: "\xDC\xE7 b\xFCy\xFCk din taraf\u0131ndan kutsal say\u0131lan \u015Fehir
+      hangisidir?"
+    aChoiceText: "\u0130stanbul"
+    bChoiceText: Roma
+    cChoiceText: Mekke
+    dChoiceText: "Kud\xFCs"
     trueAnswer: 3
   Math:
-  - question: Which number is prime?
+  - question: "Hangi say\u0131 asald\u0131r?"
     aChoiceText: 21
     bChoiceText: 11
     cChoiceText: 8
     dChoiceText: 16
     trueAnswer: 1
-  - question: Which number is divisible by 3 ?
+  - question: "Hangi say\u0131 3 ile tam b\xF6l\xFCnebilir?"
     aChoiceText: 31
     bChoiceText: 52
     cChoiceText: 744
     dChoiceText: 185
     trueAnswer: 2
+  - question: "Romen rakamlar\u0131nda hangi say\u0131 bulunmaz?"
+    aChoiceText: 1
+    bChoiceText: 10
+    cChoiceText: 0
+    dChoiceText: 100
+    trueAnswer: 2
+  - question: "Pi sat\u0131s\u0131 ka\xE7t\u0131r?"
+    aChoiceText: 3
+    bChoiceText: 3,14159
+    cChoiceText: 3,1413
+    dChoiceText: 2,99
+    trueAnswer: 1
+  - question: "Bir say\u0131n\u0131n kendisi ile \xE7arp\u0131lmas\u0131 i\u015Flemine
+      ne ad verilir?"
+    aChoiceText: Karesi
+    bChoiceText: "K\xFCb\xFC"
+    cChoiceText: "Karek\xF6k\xFC"
+    dChoiceText: "T\xFCrevi"
+    trueAnswer: 0
   Geography:
-  - question: Which city is on the black sea?
+  - question: "Hnagi ilimiz Karadeniz b\xF6lgesinde bulunur?"
     aChoiceText: "Karab\xFCk"
     bChoiceText: "K\u0131r\u015Fehir"
     cChoiceText: Ardahan
     dChoiceText: Batman
     trueAnswer: 0
-  - question: Which city has a continental climate?
-    aChoiceText: Sinop
-    bChoiceText: Erzincan
-    cChoiceText: Sakarya
-    dChoiceText: "Nev\u015Fehir"
+  - question: "Antalya ile M\u0131s\u0131r aras\u0131nda kalan denize ne ad verilir?"
+    aChoiceText: Ege
+    bChoiceText: Karadeniz
+    cChoiceText: "K\u0131z\u0131ldeniz"
+    dChoiceText: Akdeniz
     trueAnswer: 3
+  - question: "Maki bitki \xF6rt\xFCs\xFC hangi b\xF6lgemizde daha s\u0131k g\xF6r\xFCl\xFCr\xFC?"
+    aChoiceText: Ege
+    bChoiceText: Karadeniz
+    cChoiceText: "\u0130\xE7 Anadolu"
+    dChoiceText: Akdeniz
+    trueAnswer: 3
+  - question: "Tuz G\xF6l\xFCn\xFCn hangi illerimizde k\u0131y\u0131s\u0131 yoktur?"
+    aChoiceText: Aksaray
+    bChoiceText: Konya
+    cChoiceText: "Ni\u011Fde"
+    dChoiceText: Ankara
+    trueAnswer: 2
+  - question: "Hangi ilimizin sadece bir kom\u015Fusu vard\u0131r?"
+    aChoiceText: Kilis
+    bChoiceText: Hakkari
+    cChoiceText: "I\u011Fd\u0131r"
+    dChoiceText: "Bart\u0131n"
+    trueAnswer: 0
   Science:
-  - question: Which element is a noble gas?
+  - question: "Hangi element soygazd\u0131r?"
     aChoiceText: Li
     bChoiceText: Mg
     cChoiceText: He
     dChoiceText: Au
     trueAnswer: 2
-  - question: In which gland are growth hormones secreted?
-    aChoiceText: heart
-    bChoiceText: pituitary gland
-    cChoiceText: gall bladder
-    dChoiceText: pancreas
+  - question: "Hangisi b\xFCy\xFCme hormanlar\u0131 salg\u0131layan bezdir?"
+    aChoiceText: Kalp
+    bChoiceText: Hipofiz Bezi
+    cChoiceText: Safra Kesesi
+    dChoiceText: Pankreas
     trueAnswer: 1
+  - question: "Kornea hangi duyu organ\u0131m\u0131zda bulunur?"
+    aChoiceText: Deri
+    bChoiceText: "G\xF6z"
+    cChoiceText: Kulak
+    dChoiceText: Burun
+    trueAnswer: 1
+  - question: "Kaval kemi\u011Fi v\xFCcudumuzda nerede bulunur?"
+    aChoiceText: "Kafatas\u0131"
+    bChoiceText: "G\xF6\u011F\xFCs Kafesi"
+    cChoiceText: Bacaklar
+    dChoiceText: "Kal\xE7a "
+    trueAnswer: 2
+  - question: "Annesi A babas\u0131 AB kan grubundan olan bir \xE7ocu\u011Fun kan
+      grubu hangisi olamaz?"
+    aChoiceText: '0 '
+    bChoiceText: A
+    cChoiceText: AB
+    dChoiceText: B
+    trueAnswer: 0
   Sport:
-  - question: "Which team does Sergen Yal\xE7\u0131n coach?"
+  - question: "Sergen Yal\xE7\u0131n hangi tak\u0131m\u0131n teknik direkt\xF6r\xFCd\xFCr?"
     aChoiceText: "Fenerbah\xE7e"
     bChoiceText: Alanyaspor
     cChoiceText: "Be\u015Fikta\u015F"
     dChoiceText: Malatyaspor
     trueAnswer: 2
-  - question: Which athlete won the first gold medal at Tokyo 2020?
-    aChoiceText: women's volleyball team
+  - question: "Tokyo 2020 olimpiyatlar\u0131nda ilk alt\u0131n madalya\u0131 hangi
+      sporcumuz/tak\u0131m kazand\u0131rm\u0131\u015Ft\u0131r?"
+    aChoiceText: "Bayan Voleybol Tak\u0131m\u0131"
     bChoiceText: Mete Gazoz
     cChoiceText: Emel Dereli
     dChoiceText: Jack Ali Harvey
     trueAnswer: 1
+  - question: "Tatangalar trib\xFCn grubu hangi \u015Fehir tak\u0131m\u0131n\u0131n
+      toplulu\u011Fudur?"
+    aChoiceText: Kocaelispor
+    bChoiceText: Boluspor
+    cChoiceText: Samsunspor
+    dChoiceText: Sakaryaspor
+    trueAnswer: 3
+  - question: "T\xFCrkiye'nin FIFA kokartl\u0131 ilk kad\u0131n hakemi kimdir?"
+    aChoiceText: "Dilan Deniz G\xD6K\xC7EK"
+    bChoiceText: "Melis \xD6Z\xC7\u0130\u011EDEM"
+    cChoiceText: Lale ORTA
+    dChoiceText: "Neslihan MURATDA\u011EI"
+    trueAnswer: 2
+  - question: "D\xFCnyada \"Mr.Magic\" veya \"Turkish Prince\" lakaplar\u0131yla
+      tan\u0131nan bilardocumuz kimdir?"
+    aChoiceText: "Semih Sayg\u0131ner"
+    bChoiceText: "Murat Naci \xC7oklu"
+    cChoiceText: "Adnan Y\xFCksel"
+    dChoiceText: "L\xFCtfi \xC7enet"
+    trueAnswer: 0
   Cinema:
-  - question: In which movie did Brad Pitt play?
+  - question: "Hangi filmde Brad Pitt ba\u015Frold\xFCr?"
     aChoiceText: Piyanist
     bChoiceText: Fight Club
     cChoiceText: I am Legend
     dChoiceText: Titanic
     trueAnswer: 1
-  - question: Who is the director of The Godfather movie?
+  - question: "The Godfather filminin y\xF6netmeni kimdir?"
     aChoiceText: Aamir Khan
     bChoiceText: Martin Scorsese
     cChoiceText: Francis Ford Coppola
     dChoiceText: Spike Lee
     trueAnswer: 2
+  - question: "En \xE7ok \u201CEn \u0130yi Yabanc\u0131 Film Oscar\u0131\u201Dn\u0131
+      kazanan \xFClke hangisidir?"
+    aChoiceText: ABD
+    bChoiceText: "\u0130ngiltere"
+    cChoiceText: "\u0130talya"
+    dChoiceText: "\u0130spanya"
+    trueAnswer: 2
+  - question: "Adile Na\u015Fit ve M\xFCnir \xD6zkul me\u015Fhur tur\u015Fu tart\u0131\u015Fmas\u0131n\u0131
+      hangi filmde yap\u0131yordu?"
+    aChoiceText: Bizim Aile
+    bChoiceText: "Ne\u015Feli G\xFCnler"
+    cChoiceText: "G\xFClen G\xF6zler"
+    dChoiceText: "Aile \u015Eerefi"
+    trueAnswer: 1
+  - question: "Hangi oyuncu \xC7\xF6p\xE7\xFCler Kral\u0131'nda oynamam\u0131\u015Ft\u0131r?"
+    aChoiceText: "Adile Na\u015Fit"
+    bChoiceText: "Ay\u015Fen Gruda"
+    cChoiceText: "Erdal \xD6zya\u011Fc\u0131lar"
+    dChoiceText: "\u015Eener \u015Een"
+    trueAnswer: 0
 --- !u!4 &1304954492
 Transform:
   m_ObjectHideFlags: 0
@@ -9170,7 +9290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.056854174, y: 0.423}
   m_AnchorMax: {x: 0.9864867, y: 0.522502}
-  m_AnchoredPosition: {x: -32.251892, y: 6.2800903}
+  m_AnchoredPosition: {x: -32.251953, y: 6.2800903}
   m_SizeDelta: {x: 33.03025, y: -2.8458862}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1575600049
@@ -10719,7 +10839,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.09512837, y: 0.56700003}
   m_AnchorMax: {x: 0.453, y: 0.84234256}
-  m_AnchoredPosition: {x: -965.00006, y: -1.4374237}
+  m_AnchoredPosition: {x: -965.0002, y: -1.4374237}
   m_SizeDelta: {x: 9.704834, y: 0.63874817}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1755158670

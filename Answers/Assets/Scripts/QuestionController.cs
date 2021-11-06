@@ -21,13 +21,13 @@ public class QuestionController : MonoBehaviour
     [SerializeField] AdsController adsController;
     [SerializeField] AudioClip trueAnswerClip, wrongAnswerClip;
     [SerializeField] AudioSource audioSource;
+
     private void Start()
     {
         UiRefreshOnQuestionPanel();
         color = choiceButtons[0].gameObject.GetComponent<Image>().color;
         questionList = GetComponent<QuestionList>();
     }
-
 
     public void GiveQuestion(int categoryID)
     {
@@ -40,8 +40,11 @@ public class QuestionController : MonoBehaviour
         if (categoryID == 1)
         {
             choiceNumber = 1;
-            question = questionList.Culture[Random.Range(0, questionList.Culture.Count)];
+            int random = Random.Range(0, questionList.Culture.Count);
+            question = questionList.Culture[random];
+            questionList.Culture.Remove(question);
             PrintQuestion();
+
             categoryButtons[0].interactable = false;
         }
         else if (categoryID == 2)
@@ -124,6 +127,7 @@ public class QuestionController : MonoBehaviour
         }
 
     }
+
     void ButtonRefresh()
     {
         for (int i = 0; i < choiceButtons.Length; i++)
@@ -138,6 +142,7 @@ public class QuestionController : MonoBehaviour
         trueAnswerPanel.SetActive(false);
         GiveQuestion(choiceNumber);
     }
+
     public void UiRefreshOnQuestionPanel()
     {
         pointText.text = point.ToString();
@@ -154,7 +159,6 @@ public class QuestionController : MonoBehaviour
         chooseRefreshText.text = refreshJoker.ToString();
         chooseTimerText.text = timerJoker.ToString();
     }
-
 
     IEnumerator Welldone()
     {
@@ -212,6 +216,7 @@ public class QuestionController : MonoBehaviour
             point += 3;
         }
     }
+
     IEnumerator AnswerControl(Choice choice, Button selectedButton)
     {
         for (int i = 0; i < choiceButtons.Length; i++)
